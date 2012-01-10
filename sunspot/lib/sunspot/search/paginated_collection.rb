@@ -18,8 +18,6 @@ module Sunspot
         super || @collection.respond_to?(*args)
       end
 
-      private
-
       def respond_to_missing?(method, *args, &block)
         @collection.send(method, *args, &block) || super
       end
