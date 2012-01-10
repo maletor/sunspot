@@ -20,8 +20,8 @@ module Sunspot
 
       private
 
-      def method_missing(method, *args, &block)
-        @collection.send(method, *args, &block)
+      def respond_to_missing?(method, *args, &block)
+        @collection.send(method, *args, &block) || super
       end
     end
 
