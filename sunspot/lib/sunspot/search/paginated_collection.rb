@@ -49,6 +49,10 @@ module Sunspot
       def method_missing(method, *args, &block)
         @collection.send(method, *args, &block)
       end
+      
+      def respond_to?(*args)
+        super || @collection.respond_to?(*args)
+    end
 
     end
   end
